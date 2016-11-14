@@ -108,3 +108,12 @@
     position: absolute;
     bottom: 25px;
 }
+
+
+#header {
+    background: #000000;
+    color: #fff;
+    min-height: 60px;
+    position: relative;
+    z-index: 5;
+}

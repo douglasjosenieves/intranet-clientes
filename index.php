@@ -66,7 +66,7 @@ body{
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="email" required type="text" class="form-control" name="email" value="douglasjosenieves@gmail.com"
+                        <input id="email" required type="text" class="form-control" name="email" value="douglasjosenieves@hotmail.com"
                                placeholder="username or email">
                     </div>
 
@@ -209,14 +209,16 @@ $('#loging').on('submit', function(event) {
     $.ajax({
         url: 'get_loging.php',
         type: 'POST',
-        dataType: 'json',
+      
         data: $('#loging').serialize(),
     })
     .done(function(data) {
         console.log("success");
 
-        console.log(data.message);
-        if (data.type=='success') {
+        console.log(data);
+       
+
+ if (data==1) {
 
       
         $('#boton').button('reset'); 
@@ -225,7 +227,7 @@ $('#loging').on('submit', function(event) {
     
         } else {
         
-        document.location.reload(true);
+        //document.location.reload(true);
       
         $('#boton').button('reset');
          
@@ -237,7 +239,7 @@ console.log('Error de loging');
     })
     .fail(function(data) {
         console.log("error");
-
+console.log(data);
     })
     .always(function() {
         console.log("complete");

@@ -1,20 +1,9 @@
-<?php session_start(); error_reporting(0);
-header('Content-type: application/json');
-
-
-/*
- * Following code will list all the products
- */
+<?php session_start();  
  
-// array for JSON response
-
- 
-// include db connect class
 
 require_once __DIR__ . '/db_connect.php';
 
  
-// connecting to db
 $db = new DB_CONNECT();
 
 //sleep(10);
@@ -34,20 +23,19 @@ $clavemd5 = md5($clave);
 //sleep(5);
 
  
-  
-  $resul =  mysql_query("SELECT * FROM usuarios where email='$email' and clave='$clavemd5' and anulado <> 1");
+  $qry = "SELECT * FROM contactos_web where email='$email' and clave='$clavemd5' and anulado <> 1";
+
+
+  $resul =  mysql_query($qry);
   while($row =  mysql_fetch_array($resul) ) {
-$duplicidad = $row['nombre'];
-$usuario = $row['usuario'];
-$nombre = $row['nombre'];
-$apellido = $row['apellido'];
-$email = $row['email'];
+
 $id = $row['id'];
-$telefono = $row['tel'];
+$nombres = $row['nombres'];
+$apellidos = $row['apellidos'];
+$email = $row['email'];
+$movil = $row['movil'];
 $documento = $row['documento'];
-$tipo = $row['tipo'];
-$foto = $row['foto'];
-$color = $row['color'];
+$tipo_acceso = $row['tipo_acceso'];
 $anulado =  $row['anulado'];
 //echo $row['nombre'];
 }
@@ -57,65 +45,49 @@ $anulado =  $row['anulado'];
 
   $arreglo = array('Ingreso' =>'si', 
 'Id' =>$id,
-'Nombre' =>$nombre,
-'Usuario' =>$usuario,
-'Apellido' =>$apellido,
+'Nombres' =>$nombres,
+'Apellidos' =>$apellidos,
 'Email' =>$email,
-'Telefono' =>$telefono,
+'movil' =>$movil,
 'Documento' =>$documento,
-'Tipo' =>$tipo,
-'Foto' =>$foto,
-'Color' =>$color,
+'tipo_acceso' =>$tipo_acceso,
 'Anulado' =>$anulado);
 
-
-  $resul =  mysql_query("UPDATE `usuarios` SET `fecha_login` = '$fechaphp' WHERE `usuarios`.`id` = $id;");
-
-
-  
-// get all products from products table
-  //$a = array();
-
-if (!empty($email)) {
+ 
 
 
 
 
-if ($duplicidad =='') {
-
- unset($_SESSION['usuario'] );
-$status = array(
-    'type'=>'failed',
-    'message'=>$email. ' Verifique sus datos'
-  );
-   
-}
 
 
-else {
-require_once 'crear-log.php';
+ 
+
+if ($id!='') {
+  require_once 'crear-log.php';
   write_log($email,'success');
 
   $_SESSION['usuario'] = $arreglo;
+echo 1;
+}
 
-$status = array(
-    'type'=>'success',
-    'message'=>$nombre. ' Bienvenido!',
-    'nombre'=>$nombre,
-    'apellido'=>$apellido,
-    'email'=>$email,
-    'id'=>$id,
-    
-    'telefono'=>$telefono,
-    'documento'=>$documento,
-    'anulado'=>$anulado
+else
+{
+echo 'false'.$id;
 
-  );
 
 }
 
- // echo $status;
-  echo json_encode($status);
+
+
+  
    die;
-}
+ 
+
+
+
+
+
+
+
+ 
 ?>
