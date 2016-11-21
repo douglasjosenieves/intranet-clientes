@@ -11,36 +11,11 @@
 		<div class="pageContent">
 			<div class="container">
 				<ul class="topNavigation">
-					<li>
-						<div class="btn-group simpleList simpleListLighten messages">
-							<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i class="zmdi zmdi-email zmdi-hc-fw icon"></i>
-								<span class="badge" id="chatCount"></span>
-							</button>
-							
-							<ul id="chatRapido" class="dropdown-menu pull-right">
-								
-
-
-								<!-- <li>
-									<a href="#" title="#" class="clearfix">
-										<img src="tmp/44x44-3.jpg" alt="#" width="44" height="44" class="pull-left">
-										<span class="pull-left">
-											<strong class="text-gray">John Doe</strong><br />
-											<span class="text-gray">Proin vel sapien at risus...</span>
-										</span>
-										<span class="pull-right">22 sec. ago</span>
-									</a>
-								</li> -->
-							
-							</ul>
-							
-						</div>
-					</li>
+			
 					<li>
 						<div class="btn-group simpleList list-sm">
 							<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i class="zmdi zmdi-bookmark zmdi-hc-fw icon"></i>
+								<i class="zmdi zmdi-notifications-active zmdi-hc-fw icon"></i>
 								<span id="contactos_nuevos_total" class="badge"></span>
 							</button>
 
@@ -54,8 +29,8 @@
 					</li>
 
 						<li>
-						<a href="#"  id="reload" title="Refrescar">
-					<i class="zmdi zmdi-refresh-sync icon"></i>
+						<a href="<?php echo BASE_URL ?>index.php"   title="Refrescar">
+					<i class="zmdi zmdi-home icon"></i>
 						</a>
 					</li>
  
@@ -65,11 +40,7 @@
 							<i class="zmdi zmdi-fullscreen-alt zmdi-hc-fw icon js-fullscreen-enter"></i>
 						</a>
 					</li>
-					<li>
-						<a href="#" title="#" data-toggle="modal" data-target="#searchModal">
-							<i class="zmdi zmdi-search zmdi-hc-fw icon"></i>
-						</a>
-					</li>
+				 
 				</ul>
 			</div>
 		</div>

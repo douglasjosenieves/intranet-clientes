@@ -1,0 +1,9 @@
+[2016-11-21 08:36:42.000000 ::1  - success ] cliente
+[2016-11-21 08:37:07.000000 ::1  - success ] cliente
+[2016-11-21 08:44:08.000000 ::1  - success ] cliente@gmail.com
+[2016-11-21 08:52:02.000000 ::1  - success ] cliente@gmail.com
+[2016-11-21 09:21:44.000000 ::1  - success ] cliente@gmail.com
+[2016-11-21 13:04:44.000000 ::1  - success ] cliente@gmail.com
+[2016-11-21 13:07:39.000000 ::1  - success ] cliente@gmail.com
+[2016-11-21 13:07:48.000000 ::1  - success ] cliente@gmail.com
+[2016-11-21 13:08:34.000000 ::1  - success ] cliente@gmail.com

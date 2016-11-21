@@ -65,8 +65,17 @@ mysql_query("SET CHARACTER_SET utf");
 
 	<!-- Header -->
 	<?php  require_once '../header.php'; ?>
+
+	<aside class="aside">
+		<!-- User profile -->
+		<?php require_once '../usuario.php'; ?>
+         <?php require_once '../nav.php'; ?>
+		
+		<!-- Pending tasks -->
+		
+	</aside>
 	
-	<?php  require_once '../tareas-pendientes.php'; ?>
+	<?php  //require_once '../tareas-pendientes.php'; ?>
 	<!-- Page Wrap -->
 	<div class="pageWrap">
 
@@ -105,7 +114,7 @@ mysql_query("SET CHARACTER_SET utf");
 
 
 
-<?php require_once '../asesor_funtion.php'; ?>
+<?php require_once '../funciones/asesor_funtion.php'; ?>
 
 
 <div class="col-xs-12 col-sm-4">
@@ -141,7 +150,6 @@ mysql_query("SET CHARACTER_SET utf");
  
 	
 	<!-- Search modal -->
-<?php require_once '../buscar.php'; ?>
 
 	<!-- JS -->
 	<script src="../assets/js/jquery-1.11.3.min.js"></script>
