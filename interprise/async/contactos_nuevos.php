@@ -1,10 +1,9 @@
 
-				<?php require_once '../../PHPPaging.lib.php';
-
+				<?php 
 // connecting to db
 //echo $_SESSION['usuario']['Tipo'].$_SESSION['usuario']['Nombre'].$_SESSION['usuario']['Apellido'] ;
 require_once '../../db_connect.php';
-require_once '../../PHPPaging.lib.php';
+
 
 // connecting to db
 $con = new DB_CONNECT();
