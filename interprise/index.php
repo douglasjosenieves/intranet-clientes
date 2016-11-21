@@ -37,13 +37,13 @@ $status[$row['status']] = $row['cuenta'];
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>ERP | GEA</title>
+	<title>INTRANET | CLIENTES</title>
 	<meta name="description" content="...">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- Icons -->
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
-
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 	<!-- CSS -->
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
