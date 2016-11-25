@@ -138,7 +138,7 @@ $imagen = explode(';',$data[$st]['capture1']) ;
 
 if (!empty($imagen[0])) {
 
-	$imagen0 = 'http://cohenyaguirre.tk/interprise/file-upload/'.$imagen[0].'';
+	$imagen0 = 'http://cohenyaguirre.tk/interprise/file-upload/tumb/'.$imagen[0].'';
 	}
 
 else{
@@ -148,7 +148,7 @@ $imagen0 = 'http://cohenyaguirre.tk/interprise/img/sin_imagen_disponible.jpg';
 
 if (!empty($imagen[1])) {
 
-$imagen1 = 'http://cohenyaguirre.tk/interprise/file-upload/'.$imagen[1].'';
+$imagen1 = 'http://cohenyaguirre.tk/interprise/file-upload/tumb/'.$imagen[1].'';
 	}
 
 else{
@@ -171,7 +171,7 @@ $imagen1 = 'http://cohenyaguirre.tk/interprise/img/sin_imagen_disponible.jpg';
 									
 								</ul>
 							</div>
-							<p><?php echo substr($data[$st]['comentarios_sobre_negocio'], 0,300) ?>... <a href="#" title="#" class="text-orange"><strong>More</strong></a></p>
+							<p><?php echo substr($data[$st]['comentarios_sobre_negocio'], 0,300) ?>... <a href="<?php echo BASE_URL ?>mod_opciones/reporte.php?id=<?php  echo $data[$st]['ref'] ?>" title="#" class="text-orange"><strong>Ver mas</strong></a></p>
 
 							<div class="info">
 								<span class="text-light-gray"><i class="fa fa-fw fa-clock-o"></i> Fecha de publicación:</span> <strong><?php  echo $data[$st]['fecha'] ?></strong><br>
