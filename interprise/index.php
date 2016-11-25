@@ -9,17 +9,6 @@ require_once __DIR__ . '../../db_connect.php';
 
 $db = new DB_CONNECT();
 //sleep(10);
-mysql_query("SET NAMES utf8");
-mysql_query("SET CHARACTER_SET utf");  
-
-$resul =  mysql_query("SELECT distinct status, count(status) as cuenta FROM contactos_web where anulado <> 1 group by status;");
-
- $st = 0;
-$status = array();
- 
-while($row =  mysql_fetch_array($resul) ) {
-$status[$row['status']] = $row['cuenta'];
- }
 
 
  
@@ -121,39 +110,91 @@ $status[$row['status']] = $row['cuenta'];
 
 <div class="container">
 				
-
-
-				<div class="row">
-			<div class="box box-without-padding">
-							<div class="clearfix boxHeader boxHeaderBorders">
-								<h2 class="boxTitle pull-left">Inicio</h2>
-				
-
-<div class="col-md-12">
-	
 <!--=============================================
 =            AQUI VA EL COD DEL HOME            =
 ==============================================-->
 
+				<div class="row">
+			 
+				
+ <?php  mysql_query("SET NAMES utf8");
+mysql_query("SET CHARACTER_SET utf");  
+
+$resul =  mysql_query("SELECT * FROM form_fichas_opciones where anulado <> 1 order by ref desc;");
+
+ $st = 0;
+$data = array();
+ 
+while($row =  mysql_fetch_array($resul) ) {
+	$data[]= $row;
+ 
+ ?>
+	
+
+<?php 
+
+$imagen = explode(';',$data[$st]['capture1']) ;
 
 
-<!--====  End of AQUI VA EL COD DEL HOME  ====-->
+if (!empty($imagen[0])) {
+
+	$imagen0 = 'http://cohenyaguirre.tk/interprise/file-upload/'.$imagen[0].'';
+	}
+
+else{
+
+$imagen0 = 'http://cohenyaguirre.tk/interprise/img/sin_imagen_disponible.jpg';
+	}
+
+if (!empty($imagen[1])) {
+
+$imagen1 = 'http://cohenyaguirre.tk/interprise/file-upload/'.$imagen[1].'';
+	}
+
+else{
+
+$imagen1 = 'http://cohenyaguirre.tk/interprise/img/sin_imagen_disponible.jpg';
+	}
+
+?>
+
+<div class="col-xs-12 col-md-6 col-lg-4">
+						<div class="box taskCard">
+							<div class="rte">
+								<h2 class="title"><?php  echo $data[$st]['nombre_opcion'] ?></h2>
+							</div>
+							<div class="participants">
+								<div class="text-light-gray title">Ref# <?php  echo $data[$st]['ref'] ?></div>
+								<ul class="usersList">
+									<li><a href="#" title="#"><img src="<?php echo $imagen0;  ?>" alt="#" width="44" height="44"></a></li>
+									<li><a href="#" title="#"><img src="<?php echo $imagen1;  ?>" alt="#" width="44" height="44"></a></li>
+									
+								</ul>
+							</div>
+							<p><?php echo substr($data[$st]['comentarios_sobre_negocio'], 0,300) ?>... <a href="#" title="#" class="text-orange"><strong>More</strong></a></p>
+
+							<div class="info">
+								<span class="text-light-gray"><i class="fa fa-fw fa-clock-o"></i> Fecha de publicación:</span> <strong><?php  echo $data[$st]['fecha'] ?></strong><br>
+								<span class="text-light-gray"><i class="fa fa-fw fa-list-alt"></i> Sector:</span> <strong><?php  echo $data[$st]['sector'] ?></strong><br>
+								<span class="text-light-gray"><i class="fa fa-fw fa-usd"></i> Inversón:</span> <strong><?php  echo $data[$st]['nosotros_ofrecemos'] ?> €</strong>
+							</div>
+						</div>
+					</div>
 
 
 
+<?php  $st++;} ?>
 
 </div>
 
-			</div>
-			</div>
+			 
 
 					 
-			</div>
+		 
 
 
 
-
-
+<!--====  End of AQUI VA EL COD DEL HOME  ====-->
 
 </div><!-- html container -->
 			 
