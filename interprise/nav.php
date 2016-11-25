@@ -94,18 +94,19 @@ require_once 'nav_define.php';
 <!--=================================================
 =            AQUI VA TODO EL MENU DELUXE            =
 ==================================================-->
-		<li class="sub js-submenu" style="background-color: black;color: white;">
-					<div><i class="zmdi zmdi-star zmdi-hc-fw icon"></i> <span class="hidden-xs hidden-sm">Deluxe <i class="zmdi zmdi-plus plus"></i></span></div>
+		
+<?php
 
-					<ul >
-						
-<li><a href="<?php echo BASE_URL ?>mod_deluxe/index.php" title="">Negocios exclusivos</a></li>
- <li><a href="<?php echo BASE_URL ?>mod_deluxe/index.php" title="">Negocios franquicias</a></li>
-						
+  if ($_SESSION['usuario']['Tipo_acceso'] == 'DELUXE') {
+  	  require_once 'nav_deluxe.php'; 	
+  } 
 
-						 
-					</ul>
-				</li>
+  
+  							
+
+
+  ?>
+	
 
 
 <!--====  End of AQUI VA TODO EL MENU DELUXE  ====-->

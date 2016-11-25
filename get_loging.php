@@ -50,7 +50,7 @@ $anulado =  $row['anulado'];
 'Email' =>$email,
 'movil' =>$movil,
 'Documento' =>$documento,
-'tipo_acceso' =>$tipo_acceso,
+'Tipo_acceso' =>$tipo_acceso,
 'Anulado' =>$anulado);
 
  

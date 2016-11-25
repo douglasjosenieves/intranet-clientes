@@ -88,12 +88,12 @@ $status[$row['status']] = $row['cuenta'];
 				<div class="boxHeader pageBoxHeader clearfix">
 					<div class="pull-left">
 						<h1 class="pageTitle">
-							<a href="#" title="#">Panel de control - <?php echo $_SESSION['usuario']['tipo_acceso']; ?>
+							<a href="#" title="#">Panel de control - <?php echo $_SESSION['usuario']['Tipo_acceso']; ?>
 </a>
 						</h1>
 						<ol class="breadcrumb">
 							<li><a href="index.php">Inicio</a></li>
-							<li class="active">Bienvenido(a) <?php echo $_SESSION['usuario']['Nombres'] ?>-<?php echo $_SESSION['usuario']['Apellidos'] ?></li>
+							<li class="active">Bienvenido(a) <?php echo $_SESSION['usuario']['Nombres'] ?> -<?php echo $_SESSION['usuario']['Apellidos'] ?> (<?php echo $_SESSION['usuario']['Id'] ?>)</li>
 						</ol>
 					</div>
 
@@ -103,7 +103,7 @@ $status[$row['status']] = $row['cuenta'];
 						</button>
 						<ul class="dropdown-menu">
 							<li><a href="<?php echo BASE_URL ?>index.php" title="#"><i class="zmdi zmdi-home zmdi-hc-fw"></i> Inicio</a></li>
-							<li><a href="#" title="#"><i class="zmdi zmdi-close zmdi-hc-fw"></i> Salir</a></li>
+							<li><a href="#"  title="#" class="salir"><i class="zmdi zmdi-close zmdi-hc-fw"></i> Salir</a></li>
 		 
 						</ul>
 					</div>
@@ -184,13 +184,10 @@ $status[$row['status']] = $row['cuenta'];
 	<script src="assets/js/app_index.min.js"></script>
    <script src="assets/sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
 	<div class="visible-xs visible-sm extendedChecker"></div>
-	 
+
 </body>
 
-<script type="text/javascript">
-
-
-
-</script>
+ <?php require_once 'js.php'; ?>
+ 
 <!-- Mirrored from sharpen.tomaj.sk/v1.7/html5/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 23 May 2016 19:05:52 GMT -->
 </html>
