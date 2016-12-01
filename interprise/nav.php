@@ -25,9 +25,9 @@ require_once 'nav_define.php';
 
 					<ul>
 							
-					<li><a href="<?php echo BASE_URL ?>mod_opc_negocios/index.php" title="#">Diarios</a></li>
-					<li><a href="<?php echo BASE_URL ?>mod_opc_negocios/index.php" title="#">Exclusivos</a></li>
-					<li><a href="<?php echo BASE_URL ?>mod_opc_negocios/index.php" title="#">Franquicias</a></li>
+					<li><a href="<?php echo BASE_URL ?>mod_opciones/diarios.php" title="#">Diarios</a></li>
+					<li><a href="<?php echo BASE_URL ?>mod_opciones/exclusivas.php" title="#">Exclusivas</a></li>
+					<li><a href="<?php echo BASE_URL ?>mod_opciones/franquicias.php" title="#">Franquicias</a></li>
 					
 
 					</ul>
@@ -37,12 +37,15 @@ require_once 'nav_define.php';
 					<div><i class="zmdi zmdi-notifications-active zmdi-hc-fw icon"></i> <span class="hidden-xs hidden-sm">Mis seguimientos <i class="zmdi zmdi-plus plus"></i></span></div>
 
 					<ul >
-				
+			<li><a href="<?php echo BASE_URL ?>mod_seguimientos/index.php" title="Perfil del usuario">Nuevo</a></li>
 
-				<li><a href="<?php echo BASE_URL ?>mod_mis_seguimientos/ejecutivo_comercial.php" title="Perfil del usuario">Ejecutivo y Comercial</a></li>
-				<li><a href="<?php echo BASE_URL ?>mod_mis_seguimientos/financiero.php" title="Perfil del usuario">Financiero</a></li>
-				<li><a href="<?php echo BASE_URL ?>mod_mis_seguimientos/legal.php" title="Perfil del usuario">Legal</a></li>
-				<li><a href="<?php echo BASE_URL ?>mod_mis_seguimientos/estudios.php" title="Perfil del usuario">Estudios contratados</a></li>
+<li><a href="<?php echo BASE_URL ?>mod_seguimientos/ejecutivo_comercial.php" title="Perfil del usuario">Ejecutivo y Comercial</a></li>
+			
+<li><a href="<?php echo BASE_URL ?>mod_seguimientos/financiero.php" title="Perfil del usuario">Financiero</a></li>
+				<li><a href="<?php echo BASE_URL ?>mod_seguimientos/legal.php" title="Perfil del usuario">Legal</a></li>
+
+		<li><a href="<?php echo BASE_URL ?>mod_seguimientos/administrativo.php" title="Perfil del usuario">Administración contable</a></li>			
+				<li><a href="<?php echo BASE_URL ?>mod_seguimientos/estudios.php" title="Perfil del usuario">Estudios contratados</a></li>
 
 
 						 

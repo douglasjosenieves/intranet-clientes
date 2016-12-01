@@ -27,7 +27,7 @@ $qry = "UPDATE `seguimiento`
 SET
 
 `id_contacto` = '$id_contacto',
-`cliente` = '$cliente',
+`nombres` = '$cliente',
 
 `asunto` = '$asunto',
 `descripcion` = '$descripcion',

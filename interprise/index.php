@@ -120,7 +120,7 @@ $db = new DB_CONNECT();
  <?php  mysql_query("SET NAMES utf8");
 mysql_query("SET CHARACTER_SET utf");  
 
-$resul =  mysql_query("SELECT * FROM form_fichas_opciones where anulado <> 1 order by ref desc;");
+$resul =  mysql_query("SELECT * FROM form_fichas_opciones where anulado <> 1 order by ref desc limit 6;");
 
  $st = 0;
 $data = array();

@@ -4,7 +4,7 @@ header('Location: ../../index.php');
 }
 //echo $_SESSION['usuario']['Tipo'].$_SESSION['usuario']['Nombre'].$_SESSION['usuario']['Apellido'].'asdasdasdsas' ;
 require_once '../../db_connect.php';
-require_once '../../PHPPaging.lib.php';
+
 
 // connecting to db
 $con = new DB_CONNECT();
@@ -44,21 +44,24 @@ mysql_query("SET CHARACTER_SET utf");
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
-
-
 	<!--[if lt IE 8]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 
-	<!-- Header -->
-		<!-- Header -->
-	<?php  require_once '../header.php'; ?>
-	
-	<?php  require_once '../tareas-pendientes.php'; ?>
-	<!-- Page Wrap -->
 
-	<!-- Page Wrap -->
+	<!-- Header -->
+	<?php  require_once '../header.php'; ?>
+
+	<aside class="aside">
+		<!-- User profile -->
+		<?php require_once '../usuario.php'; ?>
+         <?php require_once '../nav.php'; ?>
+		
+		<!-- Pending tasks -->
+		
+	</aside>
+	
+	<?php  //require_once '../tareas-pendientes.php'; ?>
 	<div class="pageWrap">
 
 		<!-- Page content -->
@@ -84,7 +87,7 @@ mysql_query("SET CHARACTER_SET utf");
 							<thead>
 								<tr>
 									<th># Id</th>
-									<th>Cliente</th>
+									<th>Nombre</th>
 									<th>Fecha ingreso</th>
 									<th>Elaborado por</th>
 									<th>Fecha modificado</th>
@@ -97,10 +100,12 @@ mysql_query("SET CHARACTER_SET utf");
 							
 
 <?php 
-require_once '../usuario_funtion.php';
-require_once '../status_funtion_abierto_cerrado.php';
+
+$id = $_SESSION['usuario']['Id'];
+require_once '../funciones/usuario_funtion.php';
+require_once '../funciones/status_funtion_abierto_cerrado.php';
                     $i=0;
-                    $resul =  mysql_query("SELECT * FROM `seguimiento` where anulado <> 1 and status = 'ABIERTO'  order by id desc");
+                    $resul =  mysql_query("SELECT * FROM `seguimiento` where anulado <> 1 and id_contacto = $id and categoria ='LEGAL'   order by id desc");
                     while($row =  mysql_fetch_array($resul) ) {
                     
 
@@ -123,7 +128,7 @@ require_once '../status_funtion_abierto_cerrado.php';
 
 								<tr class="">
 									<th scope="row"> <a href="../mod_seguimientos/index.php?editar_caso=<?php echo $contacto['contacto'][$i]['id']?>&id=<?php echo $contacto['contacto'][$i]['id_contacto'] ;?>"> <?php echo $contacto['contacto'][$i]['id']?></a></th>
-									<td><?php echo $contacto['contacto'][$i]['cliente']?></td>
+									<td><?php echo $contacto['contacto'][$i]['nombres']?></td>
 									<td><?php echo $contacto['contacto'][$i]['fecha']?></td>
 									<td><?php $usuario = usuarioFuntion ($contacto['contacto'][$i]['elaborado_por']); echo ucwords($usuario[0]['nombre'].' '.$usuario[0]['apellido'])?></td>
 										<td><?php echo $contacto['contacto'][$i]['editado_fecha']?></td>
@@ -158,7 +163,7 @@ require_once '../status_funtion_abierto_cerrado.php';
 	
 	
 	<!-- Search modal -->
-<?php require_once '../buscar.php'; ?>
+ 
 
 	<!-- JS -->
 	<script src="../assets/js/jquery-1.11.3.min.js"></script>

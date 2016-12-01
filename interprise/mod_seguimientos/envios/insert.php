@@ -29,14 +29,14 @@ $descripcion=$_REQUEST['descripcion'];
 
  
  
-$elaborado_por=$_REQUEST['elaborado_por'];
+$elaborado_por='100';
 
 
  
 
 $fecha = date("Y-m-d H:i:s");
 
-$qry = "INSERT INTO `seguimiento` ( `id_contacto`, `cliente`, `asunto`, `descripcion`, `categoria`, `status`, `tramitido_al_crm`, `fecha`, `elaborado_por`) 
+$qry = "INSERT INTO `seguimiento` ( `id_contacto`, `nombres`, `asunto`, `descripcion`, `categoria`, `status`, `tramitido_al_crm`, `fecha`, `elaborado_por`) 
 
 
 VALUES (

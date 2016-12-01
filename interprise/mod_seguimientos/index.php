@@ -80,8 +80,17 @@ if (isset($_GET['id'])) {
 
 	<!-- Header -->
 	<?php  require_once '../header.php'; ?>
+
+	<aside class="aside">
+		<!-- User profile -->
+		<?php require_once '../usuario.php'; ?>
+         <?php require_once '../nav.php'; ?>
+		
+		<!-- Pending tasks -->
+		
+	</aside>
 	
-	<?php  require_once '../tareas-pendientes.php'; ?>
+	<?php  //require_once '../tareas-pendientes.php'; ?>
 	<!-- Page Wrap -->
 	<div class="pageWrap">
 
@@ -129,9 +138,9 @@ if (isset($_GET['id'])) {
 									<label for="referencia">Nº Referencia</label>
 									<input type="text" value="<?php echo $casos['casos'][0]['id'] ?>" readonly required class="form-control" name="referencia" id="referencia" placeholder="Nº Referencia">
 								</div>
-							</div>
+							</div> 
 
-								 <div class="col-xs-12 col-sm-4">
+							<!-- 	 <div class="col-xs-12 col-sm-4">
 														<div class="form-group">
 															<label for="elaborado_por">Elaborado Por:</label>
 															<input  readonly type="text" required class="form-control" value="<?php echo $_SESSION['usuario']['Nombre'].' '.$_SESSION['usuario']['Apellido'] ?>" name="soloLectura" id="elaborado_por" placeholder="Elaborado Por:">
@@ -139,12 +148,12 @@ if (isset($_GET['id'])) {
 
 															<input  readonly type="hidden" required class="form-control" value="<?php echo $_SESSION['usuario']['Id'] ?>" name="elaborado_por" id="elaborado_por" placeholder="Elaborado Por:">
 														</div>
-													</div>
+													</div> -->
 
-<div class="col-xs-12 col-sm-4 col-sm-offset-2">
+<!-- <div class="col-xs-12 col-sm-4 col-sm-offset-2">
 <div class="form-group">
 <label for="basicInput">Buscar:</label>
-<input type="text" value="<?php echo $data['data'][0]['buscar'] ?>" class="form-control" name="buscar" id="buscar" placeholder="Buscar:" style="background-color: #accead; font-weight: 800;">
+<input type="text" value="<?php // echo $data['data'][0]['buscar'] ?>" class="form-control" name="buscar" id="buscar" placeholder="Buscar:" style="background-color: #accead; font-weight: 800;">
 </div>
 
 <div >
@@ -152,7 +161,7 @@ if (isset($_GET['id'])) {
 		 
 	</ul>
 </div>
-</div>
+</div> -->
 
 
 
@@ -164,14 +173,14 @@ if (isset($_GET['id'])) {
 						 <div class="col-xs-12 col-sm-4">
 														<div class="form-group">
 															<label for="id_contacto">Id conctacto:</label>
-															<input type="text" required readonly class="form-control" name="id_contacto" id="id_contacto" placeholder="Id contacto:" value="<?php echo $cliente['cliente'][0]['id'] ?>">
+															<input type="text" required readonly class="form-control" name="id_contacto" id="id_contacto" placeholder="Id contacto:" value="<?php echo $_SESSION['usuario']['Id'] ?>">
 														</div>
 													</div>
 							 
 <div class="col-xs-12 col-sm-8">
 <div class="form-group">
 <label for="cliente">cliente:</label>
-<input type="text" required readonly class="form-control" name="cliente" id="cliente" placeholder="cliente:" value="<?php echo $cliente['cliente'][0]['cliente'] ?>" style="font-weight: bold;">
+<input type="text" required readonly class="form-control" name="cliente" id="cliente" placeholder="cliente:" value="<?php echo   $_SESSION['usuario']['Nombres'].' '.$_SESSION['usuario']['Apellidos'] ?>" style="font-weight: bold;">
 														</div>
 													</div>
 
@@ -317,7 +326,7 @@ if (isset($_GET['id'])) {
 							<thead>
 								<tr>
 									<th># Id</th>
-									<th>Cliente</th>
+									<th>Nombre</th>
 									<th>Fecha ingreso</th>
 									<th>Fecha modificado</th>
 									<th>Asunto</th>
@@ -330,9 +339,9 @@ if (isset($_GET['id'])) {
 
 <?php 
 
-require_once '../status_funtion_abierto_cerrado.php';
+require_once '../funciones/status_funtion_abierto_cerrado.php';
                     $i=0;
-                    $resul =  mysql_query("SELECT * FROM `seguimiento` where anulado <> 1 and id_contacto ='".$id."' order by id desc");
+                    $resul =  mysql_query("SELECT * FROM `seguimiento` where anulado <> 1 and id_contacto ='".$_SESSION['usuario']['Id'] ."' order by id desc");
                     while($row =  mysql_fetch_array($resul) ) {
                     
 
@@ -355,7 +364,7 @@ require_once '../status_funtion_abierto_cerrado.php';
 
 								<tr class="<?php echo $color  ?>">
 									<th scope="row"> <a href="?editar_caso=<?php echo $contacto['contacto'][$i]['id']?>&id=<?php echo $id ;?>"> <?php echo $contacto['contacto'][$i]['id']?></a></th>
-									<td><?php echo $contacto['contacto'][$i]['cliente']?></td>
+									<td><?php echo $contacto['contacto'][$i]['nombres']?></td>
 									<td><?php echo $contacto['contacto'][$i]['fecha']?></td>
 										<td><?php echo $contacto['contacto'][$i]['editado_fecha']?></td>
 									<td><?php echo $contacto['contacto'][$i]['asunto']?></td>
@@ -385,7 +394,7 @@ require_once '../status_funtion_abierto_cerrado.php';
 	</div>
 	
 	<!-- Search modal -->
-<?php require_once '../buscar.php'; ?>
+<?php //require_once '../buscar.php'; ?>
 
 	<!-- JS -->
 	<script src="../assets/js/jquery-1.11.3.min.js"></script>
