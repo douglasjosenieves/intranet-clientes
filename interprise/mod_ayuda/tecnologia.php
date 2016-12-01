@@ -1,27 +1,25 @@
-<?php  session_start() ;
+<?php session_start();
 if (!isset($_SESSION['usuario'] )) {
-header('Location: ../index.php');
+header('Location: ../../index.php');
 }
-
+//echo $_SESSION['usuario']['Tipo'].$_SESSION['usuario']['Nombre'].$_SESSION['usuario']['Apellido'].'asdasdasdsas' ;
 require_once '../../db_connect.php';
+
+
 // connecting to db
 $con = new DB_CONNECT();
 //sleep(10);
 mysql_query("SET NAMES utf8");
-mysql_query("SET CHARACTER_SET utf");  
-
-
-
-
+mysql_query("SET CHARACTER_SET utf");   
 ?>
 <!doctype html>
 <html class="no-js" lang="">
 
-<!-- Mirrored from sharpen.tomaj.sk/v1.7/html5/forms.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 23 May 2016 19:06:30 GMT -->
+<!-- Mirrored from sharpen.tomaj.sk/v1.7/html5/tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 23 May 2016 19:06:29 GMT -->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Plantilla Blanca</title>
+	<title>Seguimientos abiertos</title>
 	<meta name="description" content="...">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
@@ -30,27 +28,15 @@ mysql_query("SET CHARACTER_SET utf");
 	
 	<!-- CSS -->
 	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-		
 	<link rel="stylesheet" href="../assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 	<link rel="stylesheet" href="../assets/css/jquery-ui.min.css">
 	<link rel="stylesheet" href="../assets/css/select2.min.css">
 	<link rel="stylesheet" href="../assets/font-awesome-4.4.0/css/font-awesome.min.css">
-	 <link rel="stylesheet" href="../assets/css/fontello.css">
+	<link rel="stylesheet" href="../assets/css/fontello.css">
 	<link rel="stylesheet" href="../assets/css/chartist.min.css">
-	<link rel="stylesheet" href="../assets/css/bootstrap-datepicker.min.css">
-	<link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.min.css">
-	<link rel="stylesheet" href="../assets/css/bootstrap-colorpicker.min.css">
+	<link rel="stylesheet" href="../assets/css/datatables.min.css">
 	<link rel="stylesheet" href="../assets/css/app.min.css">
 	
-  <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-  <script>
- 
-
-
-  </script>
-
-	<link rel="stylesheet" href="../assets/sweetalert/sweetalert-master/dist/sweetalert.css">
-	 
 	<!-- Modernizr -->
 	<script src="../assets/js/modernizr-2.8.3.min.js"></script>
 
@@ -76,80 +62,108 @@ mysql_query("SET CHARACTER_SET utf");
 	</aside>
 	
 	<?php  //require_once '../tareas-pendientes.php'; ?>
-	<!-- Page Wrap -->
 	<div class="pageWrap">
 
 		<!-- Page content -->
 		<div class="pageContent extended">
 			<div class="container">
 				<h1 class="pageTitle">
-					<a href="#" title="#">Plantilla Blanca</a>
+					<a href="#" title="#">Seguimientos Abiertos </a>
 				</h1>
 				<ol class="breadcrumb">
-					<li><a href="../index.php">Inicio</a></li>
-					<li class="active">Menu</li>
+					<li><a href="index.php">Sharpen</a></li>
+					<li class="active">Reportes</li>
 				</ol>
 				
-				<div class="box rte">
-					<h2 class="boxHeadline">Titulo</h2>
-					<h3 class="boxHeadlineSub">Subtitulo</h3>
-<div class="row">
-
-
-<div class="col-xs-12 col-sm-2">
-<div class="form-group">
-<label for="referencia">Nº Referencia</label>
-<input type="text" readonly required class="form-control" value="<?php echo $data['data'][0]['id'] ?>" name="referencia" id="referencia" placeholder="Nº Referencia">
-
-</div>
-</div>
-
-
-<input  readonly type="hidden" required class="form-control" value="<?php echo $_SESSION['usuario']['Id']?>" name="elaborado_por" id="elaborado_por" placeholder="Elaborado Por:">
-
- <input  readonly type="hidden" required class="form-control" value="<?php echo $_SESSION['usuario']['Id']?>" name="editado_por" id="editado_por" placeholder="Elaborado Por:">
-
-
-
-
-
-
-<?php require_once '../funciones/asesor_funtion.php'; ?>
-
-
-<div class="col-xs-12 col-sm-4">
-<div class="form-group">
-<label for="basicInput">Usuario::</label>
-<input type="text" disabled value="<?php echo nombreAsessor($_SESSION['usuario']['Id'])?>" required class="form-control" name="elaborado" id="elaborado" placeholder="Elaborado:">
-</div>
-</div>
-
-
-</div>
+			
+				<!-- Data Table -->
+				<div class="box box-without-bottom-padding">
+					<h2 class="boxHeadline">Table</h2>
+					<h3 class="boxHeadlineSub">Reporte</h3>
+				 
 					
-				 <!--====================================================
-					 =            AQUI VA EL CONTENIDO DEL SITE-            =
-					 =====================================================-->
-					 
-					 
-					 
-					
- 
-				
-				</div><!-- box rate -->
-				
+					<div class="tableWrap dataTable table-responsive js-select">
+								<table  id="tabla" class="table">
+							<thead>
+								<tr>
+									<th># Id</th>
+									<th>Nombre</th>
+									<th>Fecha ingreso</th>
+									<th>Elaborado por</th>
+									<th>Fecha modificado</th>
+									<th>Asunto</th>
+									<th>Categoria</th>
+									<th>Status</th>
+								</tr>
+							</thead>
+							<tbody>
+							
 
-				 <!--====  End of AQUI VA EL CONTENIDO DEL SITE-  ====-->
-				</div> <!-- end container -->
+<?php 
+
+$id = $_SESSION['usuario']['Id'];
+require_once '../funciones/usuario_funtion.php';
+require_once '../funciones/status_funtion_abierto_cerrado.php';
+                    $i=0;
+                    $resul =  mysql_query("SELECT * FROM `seguimiento` where anulado <> 1 and id_contacto = $id and categoria ='TECNOLOGIA'   order by id desc");
+                    while($row =  mysql_fetch_array($resul) ) {
+                    
+
+                                    
+                    //echo $row['nombre_opcion'].'<br>';;
+                    $contacto['contacto'][]=$row;
+                    if ($contacto['contacto'][$i]['status']=='CERRADO') {
+                    	$color = 'success';
+                    	# code...
+                    }
+                    else {
+                    	$color = 'danger';
+                    }
+                     
+                     ?>
+
+
+
+
+
+								<tr class="">
+									<th scope="row"> <a href="../mod_seguimientos/index.php?editar_caso=<?php echo $contacto['contacto'][$i]['id']?>&id=<?php echo $contacto['contacto'][$i]['id_contacto'] ;?>"> <?php echo $contacto['contacto'][$i]['id']?></a></th>
+									<td><?php echo $contacto['contacto'][$i]['nombres']?></td>
+									<td><?php echo $contacto['contacto'][$i]['fecha']?></td>
+									<td><?php $usuario = usuarioFuntion ($contacto['contacto'][$i]['elaborado_por']); echo ucwords($usuario[0]['nombre'].' '.$usuario[0]['apellido'])?></td>
+										<td><?php echo $contacto['contacto'][$i]['editado_fecha']?></td>
+									<td><?php echo $contacto['contacto'][$i]['asunto']?></td>
+										<td><?php echo $contacto['contacto'][$i]['categoria']?></td>
+									<td><?php echo statusColor($contacto['contacto'][$i]['status'])?></td>
+								</tr>
+							
+								 
+
+
+<?php  $i++ ;}?>
+
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+				</div>
+					 
+					 
+					 <!--====  End of AQUI VA EL CONTENIDO DEL SITE-  ====-->
+  
 				
+				</div>
+				</div>
 				
 			
-			</div> <!-- end extended -->
-			
-		</div> <!-- end pageWrap -->
- 
+			</div>
+		</div>
+	<!-- </div> -->
+	
 	
 	<!-- Search modal -->
+ 
 
 	<!-- JS -->
 	<script src="../assets/js/jquery-1.11.3.min.js"></script>
@@ -182,13 +196,23 @@ mysql_query("SET CHARACTER_SET utf");
 	<script src="../assets/plugins/ckeditor/ckeditor.js"></script>
 	<script src="../assets/sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
 	<script src="../assets/js/app.min.js"></script>
+		<script src="../assets/js/datatables.min.js"></script>
 <script src='http://cdn.tinymce.com/4/tinymce.min.js'></script>
  
 
 	<div class="visible-xs visible-sm extendedChecker"></div>
 
 
+	<script type="text/javascript">
+$(document).ready(function() {
+    $('#tabla').DataTable( {
+        "order": [[ 0, "desc" ]]
+    } );
+} );
 	
+ 
+
+</script>
  
  
 </body>

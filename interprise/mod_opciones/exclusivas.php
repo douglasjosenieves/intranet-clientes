@@ -180,11 +180,11 @@ $imagen1 = 'http://cohenyaguirre.tk/interprise/img/sin_imagen_disponible.jpg';
 							<div class="rte">
 								<h2 class="title"><?php  echo $data[$st]['nombre_opcion'] ?></h2>
 							</div>
-							<div class="participants">
+						<div class="participants">
 								<div class="text-light-gray title">Ref# <?php  echo $data[$st]['ref'] ?></div>
 								<ul class="usersList">
-									<li><a href="#" title="#"><img src="<?php echo $imagen0;  ?>" alt="#" width="44" height="44"></a></li>
-									<li><a href="#" title="#"><img src="<?php echo $imagen1;  ?>" alt="#" width="44" height="44"></a></li>
+									<li><a href="<?php echo BASE_URL ?>mod_opciones/reporte.php?id=<?php  echo $data[$st]['ref'] ?>" title="#"><img src="<?php echo $imagen0;  ?>" alt="#" width="44" height="44"></a></li>
+									<li><a href="<?php echo BASE_URL ?>mod_opciones/reporte.php?id=<?php  echo $data[$st]['ref'] ?>" title="#"><img src="<?php echo $imagen1;  ?>" alt="#" width="44" height="44"></a></li>
 									
 								</ul>
 							</div>
@@ -192,8 +192,8 @@ $imagen1 = 'http://cohenyaguirre.tk/interprise/img/sin_imagen_disponible.jpg';
 
 							<div class="info">
 								<span class="text-light-gray"><i class="fa fa-fw fa-clock-o"></i> Fecha de publicación:</span> <strong><?php  echo $data[$st]['fecha'] ?></strong><br>
-								<span class="text-light-gray"><i class="fa fa-fw fa-list-alt"></i> Sector:</span> <strong><?php  echo $data[$st]['sector'] ?></strong><br>
-								<span class="text-light-gray"><i class="fa fa-fw fa-usd"></i> Inversón:</span> <strong><?php  echo $data[$st]['nosotros_ofrecemos'] ?> €</strong>
+								<span class="text-light-gray"><i class="zmdi  zmdi-local-store"></i> Sector:</span> <strong><?php  echo $data[$st]['sector'] ?></strong><br>
+								<span class="text-light-gray"><i class="fa fa-fw fa-eur"></i> Inversón:</span> <strong><?php  echo $data[$st]['nosotros_ofrecemos'] ?> €</strong>
 							</div>
 						</div>
 					</div>

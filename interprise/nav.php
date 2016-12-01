@@ -12,8 +12,8 @@ require_once 'nav_define.php';
 				<li class="sub js-submenu">
 					<div><i class="zmdi zmdi-account-box zmdi-hc-fw icon"></i> <span class="hidden-xs hidden-sm">Perfil <i class="zmdi zmdi-plus plus"></i></span></div>
 					<ul>
-					<li><a href="<?php echo BASE_URL ?>mod_usuario/datos.php" title="#">Mis Datos </a></li>
-					<li><a href="<?php echo BASE_URL ?>mod_usuario/cambio_clave.php" >Cambio de clave </a></li>
+					<li><a href="<?php echo BASE_URL ?>mod_perfil/index.php" title="#">Mis Datos </a></li>
+					<li><a href="<?php echo BASE_URL ?>mod_perfil/cambioDeClave.php" >Cambio de clave </a></li>
 					</li>
 						 
 					</ul>
@@ -44,7 +44,10 @@ require_once 'nav_define.php';
 <li><a href="<?php echo BASE_URL ?>mod_seguimientos/financiero.php" title="Perfil del usuario">Financiero</a></li>
 				<li><a href="<?php echo BASE_URL ?>mod_seguimientos/legal.php" title="Perfil del usuario">Legal</a></li>
 
-		<li><a href="<?php echo BASE_URL ?>mod_seguimientos/administrativo.php" title="Perfil del usuario">Administración contable</a></li>			
+		<li><a href="<?php echo BASE_URL ?>mod_seguimientos/administrativo.php" title="Perfil del usuario">Administración contable</a></li>
+
+
+		<li><a href="<?php echo BASE_URL ?>mod_seguimientos/tecnologia.php" title="Perfil del usuario">Tecnología</a></li>			
 				<li><a href="<?php echo BASE_URL ?>mod_seguimientos/estudios.php" title="Perfil del usuario">Estudios contratados</a></li>
 
 
@@ -63,7 +66,7 @@ require_once 'nav_define.php';
 
  
 
-					<li><a href="<?php echo BASE_URL ?>mod_clientes/mod_documentacion/index.php.php" title="#">Documentación</a></li>
+					<li><a href="<?php echo BASE_URL ?>mod_mi_documentacion/index.php" title="#">Documentación</a></li>
 		
 			
 								
@@ -123,12 +126,28 @@ require_once 'nav_define.php';
 					<ul >
 						
 <li><a href="<?php echo BASE_URL ?>mod_ayuda/index.php" title="">Nuevo ticket de soporte</a></li>
-<li><a href="<?php echo BASE_URL ?>mod_ayuda/ver.php" title="">Ticket de soporte (Ver)</a></li>
-						
+<li><a href="<?php echo BASE_URL ?>mod_ayuda/tutorial.php" title="">Tutorial</a></li>
 
 						 
 					</ul>
 				</li>
+
+
+		<li class="sub js-submenu">
+					<div><i class="zmdi zmdi-label zmdi-hc-fw icon"></i> <span class="hidden-xs hidden-sm">	Enlaces de interes <i class="zmdi zmdi-plus plus"></i></span></div>
+
+					<ul >
+						
+<li><a href="http://cohenyaguirre.es" title="">www.cohenyaguirre.es</a></li>
+
+
+						 
+					</ul>
+				</li>
+
+
 			</ul>
 		</nav>
 		
+
+	

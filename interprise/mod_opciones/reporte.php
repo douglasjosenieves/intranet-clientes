@@ -21,7 +21,7 @@ mysql_query("SET CHARACTER_SET utf");
 			
 
 				<?php 
-				$id = '100';//$_REQUEST['id'];
+				$id = $_REQUEST['id'];
 				$i=0;
 				$resul =  mysql_query("SELECT * FROM `form_fichas_opciones` where anulado <> 1 and ref='$id'");
 				while($row =  mysql_fetch_array($resul) ) {

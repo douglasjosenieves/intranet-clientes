@@ -10,13 +10,14 @@ $con = new DB_CONNECT();
 //sleep(10);
 mysql_query("SET NAMES utf8");
 mysql_query("SET CHARACTER_SET utf"); 
+extract ($_POST);
 
  ?>
 
 				<?php 
-			
+			$idu = $usuario;
 				$i=0;
-				$resul =  mysql_query("SELECT * FROM `contactos_web` where anulado <> 1 and elaborado_por ='website'");
+				$resul =  mysql_query("SELECT * FROM `seguimiento` where anulado <> 1 and status='ABIERTO' and id_contacto = $idu");
 				while($row =  mysql_fetch_array($resul) ) {
 				
 								
@@ -30,7 +31,7 @@ mysql_query("SET CHARACTER_SET utf");
 
 				<li>
 									<a href="#" title="#" class="clearfix">
-										<span class="pull-left"><i class="zmdi zmdi-accounts-add zmdi-hc-fw icon"></i> <span class="label label-info">Nuevo</span> <?php echo $opciones['contacto'][$i]['nombres']  ?></span>
+										<span class="pull-left"><i class="zmdi zmdi-accounts-add zmdi-hc-fw icon"></i> <span class="label label-info">Nuevo</span> <?php echo $opciones['contacto'][$i]['asunto']  ?></span>
 										<span class="pull-right info"><?php echo $opciones['contacto'][$i]['fecha']  ?></span>
 									</a>
 								</li>

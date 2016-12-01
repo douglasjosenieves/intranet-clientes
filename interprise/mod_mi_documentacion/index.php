@@ -21,7 +21,7 @@ mysql_query("SET CHARACTER_SET utf");
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Opciones franquicias</title>
+	<title>Mi documentación</title>
 	<meta name="description" content="...">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
@@ -83,26 +83,26 @@ mysql_query("SET CHARACTER_SET utf");
 		<div class="pageContent extended">
 			<div class="container">
 				<h1 class="pageTitle">
-					<a href="#" title="#">Opciones franquicias</a>
+					<a href="#" title="#">Mi documentación</a>
 				</h1>
 				<ol class="breadcrumb">
-					<li><a href="../index.php">Opciones de negocio</a></li>
+					<li><a href="../index.php">Inicio</a></li>
 					<li class="active">Menu</li>
 				</ol>
 				
 				<div class="box rte">
-					<h2 class="boxHeadline">Fichas</h2>
-					<h3 class="boxHeadlineSub">franquicias</h3>
+					<h2 class="boxHeadline">Mi documentación</h2>
+					<h3 class="boxHeadlineSub">En mantenimiento!</h3>
 <div class="row">
 
 
-<div class="col-xs-12 col-sm-2">
+<!-- <div class="col-xs-12 col-sm-2">
 <div class="form-group">
-
-<input type="hidden" readonly required class="form-control" value="<?php echo $data['data'][0]['id'] ?>" name="referencia" id="referencia" placeholder="Nº Referencia">
+<label for="referencia">Nº Referencia</label>
+<input type="text" readonly required class="form-control" value="<?php// echo $data['data'][0]['id'] ?>" name="referencia" id="referencia" placeholder="Nº Referencia">
 
 </div>
-</div>
+</div> -->
 
 
 <input  readonly type="hidden" required class="form-control" value="<?php echo $_SESSION['usuario']['Id']?>" name="elaborado_por" id="elaborado_por" placeholder="Elaborado Por:">
@@ -117,12 +117,12 @@ mysql_query("SET CHARACTER_SET utf");
 <?php require_once '../funciones/asesor_funtion.php'; ?>
 
 
-<div class="col-xs-12 col-sm-4">
+<!-- <div class="col-xs-12 col-sm-4">
 <div class="form-group">
-
-<input type="hidden" disabled value="<?php echo nombreAsessor($_SESSION['usuario']['Id'])?>" required class="form-control" name="elaborado" id="elaborado" placeholder="Elaborado:">
+<label for="basicInput">Usuario::</label>
+<input type="text" disabled value="<?php// echo nombreAsessor($_SESSION['usuario']['Id'])?>" required class="form-control" name="elaborado" id="elaborado" placeholder="Elaborado:">
 </div>
-</div>
+</div> -->
 
 
 </div>
@@ -131,82 +131,9 @@ mysql_query("SET CHARACTER_SET utf");
 					 =            AQUI VA EL CONTENIDO DEL SITE-            =
 					 =====================================================-->
 					 
-					 		<div class="row">
-			 
-				
- <?php  mysql_query("SET NAMES utf8");
-mysql_query("SET CHARACTER_SET utf");  
-
-$resul =  mysql_query("SELECT * FROM form_fichas_opciones_franquicias where anulado <> 1    order by ref desc;");
-
- $st = 0;
-$data = array();
- 
-while($row =  mysql_fetch_array($resul) ) {
-	$data[]= $row;
- 
- ?>
-	
-
-<?php 
-
-$imagen = explode(';',$data[$st]['capture1']) ;
-
-
-if (!empty($imagen[0])) {
-
-	$imagen0 = 'http://cohenyaguirre.tk/interprise/file-upload/tumb/'.$imagen[0].'';
-	}
-
-else{
-
-$imagen0 = 'http://cohenyaguirre.tk/interprise/img/sin_imagen_disponible.jpg';
-	}
-
-if (!empty($imagen[1])) {
-
-$imagen1 = 'http://cohenyaguirre.tk/interprise/file-upload/tumb/'.$imagen[1].'';
-	}
-
-else{
-
-$imagen1 = 'http://cohenyaguirre.tk/interprise/img/sin_imagen_disponible.jpg';
-	}
-
-?>
-
-<div class="col-xs-12 col-md-6 col-lg-4">
-						<div class="box taskCard">
-							<div class="rte">
-								<h2 class="title"><?php  echo $data[$st]['nombre_opcion'] ?></h2>
-							</div>
-						<div class="participants">
-								<div class="text-light-gray title">Ref# <?php  echo $data[$st]['ref'] ?></div>
-								<ul class="usersList">
-									<li><a href="<?php echo BASE_URL ?>mod_opciones/reporte.php?id=<?php  echo $data[$st]['ref'] ?>" title="#"><img src="<?php echo $imagen0;  ?>" alt="#" width="44" height="44"></a></li>
-									<li><a href="<?php echo BASE_URL ?>mod_opciones/reporte.php?id=<?php  echo $data[$st]['ref'] ?>" title="#"><img src="<?php echo $imagen1;  ?>" alt="#" width="44" height="44"></a></li>
-									
-								</ul>
-							</div>
-							<p><?php echo substr($data[$st]['comentarios_sobre_negocio'], 0,300) ?>... <a href="<?php echo BASE_URL ?>mod_opciones/reporte.php?id=<?php  echo $data[$st]['ref'] ?>" title="#" class="text-orange"><strong>Ver mas</strong></a></p>
-
-							<div class="info">
-								<span class="text-light-gray"><i class="fa fa-fw fa-clock-o"></i> Fecha de publicación:</span> <strong><?php  echo $data[$st]['fecha'] ?></strong><br>
-								<span class="text-light-gray"><i class="zmdi  zmdi-local-store"></i> Sector:</span> <strong><?php  echo $data[$st]['sector'] ?></strong><br>
-								<span class="text-light-gray"><i class="fa fa-fw fa-eur"></i> Inversón:</span> <strong><?php  echo $data[$st]['nosotros_ofrecemos'] ?> €</strong>
-							</div>
-						</div>
-					</div>
-
-
-
-<?php  $st++;} ?>
-
-</div>
-
-			 
 					 
-					
+					 
+					<h5>En mantenimiento!</h5>
  
 				
 				</div><!-- box rate -->

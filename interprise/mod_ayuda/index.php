@@ -36,7 +36,7 @@ if (isset($_GET['id'])) {
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Seguimientos</title>
+	<title>Nuevo ticket de soporte</title>
 	<meta name="description" content="...">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
@@ -98,11 +98,11 @@ if (isset($_GET['id'])) {
 		<div class="pageContent extended">
 			<div class="container">
 				<h1 class="pageTitle">
-					<a href="#" title="#">Seguimiento de cliente </a>
+					<a href="#" title="#">Nuevo ticket de soporte </a>
 				</h1>
 				<ol class="breadcrumb">
-					<li><a href="index.php">Sharpen</a></li>
-					<li class="active">Procesos</li>
+					<li><a href="index.php">Inicio</a></li>
+					<li class="active">Ayuda</li>
 				</ol>
 				
 				<div class="box rte">
@@ -133,20 +133,20 @@ if (isset($_GET['id'])) {
 		
 
 
- <div class="col-xs-12 col-sm-2">
+<!--  <div class="col-xs-12 col-sm-2">
 								<div class="form-group">
 									<label for="referencia">Nº Referencia</label>
-									<input type="text" value="<?php echo $casos['casos'][0]['id'] ?>" readonly required class="form-control" name="referencia" id="referencia" placeholder="Nº Referencia">
+									<input type="text" value="<?php// echo $casos['casos'][0]['id'] ?>" readonly required class="form-control" name="referencia" id="referencia" placeholder="Nº Referencia">
 								</div>
-							</div> 
+							</div>  -->
 
 							<!-- 	 <div class="col-xs-12 col-sm-4">
 														<div class="form-group">
 															<label for="elaborado_por">Elaborado Por:</label>
-															<input  readonly type="text" required class="form-control" value="<?php //echo $_SESSION['usuario']['Nombre'].' '.$_SESSION['usuario']['Apellido'] ?>" name="soloLectura" id="elaborado_por" placeholder="Elaborado Por:">
+															<input  readonly type="text" required class="form-control" value="<?php // echo $_SESSION['usuario']['Nombre'].' '.$_SESSION['usuario']['Apellido'] ?>" name="soloLectura" id="elaborado_por" placeholder="Elaborado Por:">
 
 
-															<input  readonly type="hidden" required class="form-control" value="<?php// echo $_SESSION['usuario']['Id'] ?>" name="elaborado_por" id="elaborado_por" placeholder="Elaborado Por:">
+															<input  readonly type="hidden" required class="form-control" value="<?php // echo $_SESSION['usuario']['Id'] ?>" name="elaborado_por" id="elaborado_por" placeholder="Elaborado Por:">
 														</div>
 													</div> -->
 
@@ -167,8 +167,8 @@ if (isset($_GET['id'])) {
 
 </div>
 
-<hr>
-	<div class="row">
+
+	<div class="row hidden">
 
 						 <div class="col-xs-12 col-sm-4">
 														<div class="form-group">
@@ -191,7 +191,7 @@ if (isset($_GET['id'])) {
 
 						</div>
 
-						<div class="row">
+						<div class="row hidden">
 	
 
 	<div class="col-xs-12 col-sm-4 i">
@@ -207,24 +207,10 @@ if (isset($_GET['id'])) {
 										echo '</option>';
 										# code...
 									} ?>
-									<option value=""  >- Select categoria -</option>
-										<?php 
+									
+										
 
-
-                    $i=0;
-                    $resul =  mysql_query("SELECT * FROM `seguimiento_cat` where anulado <> 1 ");
-                    while($row =  mysql_fetch_array($resul) ) {
-                    
-                          ?>
-
-<option value="<?php echo $row['nombre'] ?>"><?php echo $row['nombre'] ?></option>
-                        
-                         <?php               
-                    //echo $row['nombre_opcion'].'<br>';;
-                    $opciones['opciones'][]=$row;
-                    
-                      }
-                     ?>
+										<option value="EJECUTIVO Y COMERCIAL">EJECUTIVO Y COMERCIAL</option>
 
 
 										
@@ -240,6 +226,7 @@ if (isset($_GET['id'])) {
 <div class="col-xs-12 col-sm-4 i">
 								<div class="form-group">
 									<label>Status:</label>
+
 									<select name="status" required class="js-select">
 <option value="ABIERTO">ABIERTO </option>
 											<?php if (isset($_GET['editar_caso'])) {
@@ -250,11 +237,11 @@ if (isset($_GET['id'])) {
 										echo '</option>';
 										# code...
 									} ?>
-	<!-- 								<option value=""  >- Select status -</option>
+									<option value=""  >- Select status -</option>
 				
 
-
-<option value="CERRADO">CERRADO </option> -->
+<option value="ABIERTO">ABIERTO </option>
+<option value="CERRADO">CERRADO </option>
                         
          
 
@@ -274,7 +261,7 @@ if (isset($_GET['id'])) {
 
 						
 					
-<hr />
+
 						 
 					
 
