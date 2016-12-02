@@ -19,7 +19,7 @@ $clave=$_REQUEST['clave'];
 
 //827ccb0eea8a706c4c34a16891f84e7b por defecto 12345
 
-$clavemd5 = md5($clave);
+$clavemd5 = $clave;
 //sleep(5);
 
  
