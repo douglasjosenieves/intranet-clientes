@@ -141,8 +141,8 @@ mysql_query("SET CHARACTER_SET utf");
 	<div class="form-group">
 		<label class="sr-only" for="">Nueva Clave:</label>
 		<input type="hidden" name="id" value="<?php echo $_SESSION['usuario']['Id'] ?>">
-		<input type="password" name="clave" class="form-control" id="clave1" placeholder="Nueva Clave:">
-		<input type="password" name="clave2" class="form-control" id="clave2" placeholder="Repita Clave:">
+		<input type="password" required="true" name="clave" class="form-control" id="clave1" placeholder="Nueva Clave:">
+		<input type="password" required="true" name="clave2" class="form-control" id="clave2" placeholder="Repita Clave:">
 	</div>
 
 	
