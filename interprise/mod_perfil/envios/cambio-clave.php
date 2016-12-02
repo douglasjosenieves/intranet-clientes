@@ -18,7 +18,7 @@ extract ($_POST);
 $images = serialize($imagenes);
 
 
- $clavemd5 = md5($clave); 
+ $clavemd5 = $clave; 
 //$clave='122';
 //$id='1';
 
