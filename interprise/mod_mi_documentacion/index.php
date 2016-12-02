@@ -11,7 +11,13 @@ mysql_query("SET NAMES utf8");
 mysql_query("SET CHARACTER_SET utf");  
 
 
+$id= $_SESSION['usuario']['Id'];
 
+ $resul =  mysql_query("SELECT * FROM  contactos_web where id =$id");
+$data = array();
+while($row =  mysql_fetch_array($resul) ) {
+$data['data'][] = $row;
+}
 
 ?>
 <!doctype html>
@@ -92,7 +98,7 @@ mysql_query("SET CHARACTER_SET utf");
 				
 				<div class="box rte">
 					<h2 class="boxHeadline">Mi documentación</h2>
-					<h3 class="boxHeadlineSub">En mantenimiento!</h3>
+					<h3 class="boxHeadlineSub"></h3>
 <div class="row">
 
 
@@ -133,7 +139,34 @@ mysql_query("SET CHARACTER_SET utf");
 					 
 					 
 					 
-					<h5>En mantenimiento!</h5>
+					
+
+					<div class="doc_ajuntos">
+<h3>Documentos adjuntos</h3>
+<?php $pre_adjunto = unserialize($data['data'][0]['imagenes']) ;
+
+if  (is_array($pre_adjunto )){
+foreach ($pre_adjunto as $key => $value) {
+	
+
+
+
+
+
+ ?>
+
+
+
+
+
+
+<a class="btn btn-large  bg-green" data-nombre="<?php echo $value ?>" target="_blank"  href="http://cohenyaguirre.tk/interprise/file-upload/contactos-documentos/<?php echo $value ?>" role="button"> <i class="fa fa-download"></i> <?php echo $value ?></a>
+
+<input type="hidden" name="imagenes[]" value="<?php echo $value ?>" id="" data-nombre="<?php echo $value ?>" class="imageninput" placeholder="Texto">
+
+<?php } }?>
+
+</div>
  
 				
 				</div><!-- box rate -->

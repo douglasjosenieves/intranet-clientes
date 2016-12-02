@@ -90,9 +90,8 @@ mysql_query("SET CHARACTER_SET utf");
 					<li class="active">Menu</li>
 				</ol>
 				
-				<div class="box rte">
-					<h2 class="boxHeadline">Fichas</h2>
-					<h3 class="boxHeadlineSub">franquicias</h3>
+		
+					
 <div class="row">
 
 
@@ -132,12 +131,33 @@ mysql_query("SET CHARACTER_SET utf");
 					 =====================================================-->
 					 
 					 		<div class="row">
-			 
-				
+			 		<div class="search-form-wrap">
+							<form>
+								<div class="input-group">
+									<input type="text" name="clave" placeholder="Escriba palabra clave aquí! (Nombre de la opcion, Sector )" class="form-control">
+									<div class="input-group-btn">
+										<button class="btn btn-lg btn-green" type="submit">Buscador</button>
+									</div>
+								</div>
+							</form>
+							<div class="search-results-info">Resultados para: <span class="text-green"><strong>"<?php echo $_GET['clave'] ?>"</strong></span></div>
+						</div>
+
+
  <?php  mysql_query("SET NAMES utf8");
 mysql_query("SET CHARACTER_SET utf");  
 
-$resul =  mysql_query("SELECT * FROM form_fichas_opciones_franquicias where anulado <> 1    order by ref desc;");
+
+if (isset($_GET['clave'])) {
+	$texto = $_GET['clave'];
+$resul =  mysql_query("SELECT * FROM form_fichas_opciones_franquicias where anulado <> 1 and nombre_opcion like '%".$texto."%'  OR  sector like '%".$texto."%'  "); 
+} else {
+$resul =  mysql_query("SELECT * FROM form_fichas_opciones_franquicias where anulado <> 1 order by ref desc limit 6;");
+}
+			
+
+
+ 
 
  $st = 0;
 $data = array();
@@ -209,7 +229,7 @@ $imagen1 = 'http://cohenyaguirre.tk/interprise/img/sin_imagen_disponible.jpg';
 					
  
 				
-				</div><!-- box rate -->
+				
 				
 
 				 <!--====  End of AQUI VA EL CONTENIDO DEL SITE-  ====-->
