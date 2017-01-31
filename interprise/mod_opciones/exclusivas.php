@@ -134,25 +134,32 @@ mysql_query("SET CHARACTER_SET utf");
 			 		<div class="search-form-wrap">
 							<form>
 								<div class="input-group">
-									<input type="text" name="clave" placeholder="Escriba palabra clave aquí! (Nombre de la opcion, Sector, Codigo Postal )" class="form-control">
+									<input type="text" name="clave" placeholder="Escriba palabra clave aquí! (Nombre de la opcion)" class="form-control">
 									<div class="input-group-btn">
 										<button class="btn btn-lg btn-green" type="submit">Buscador</button>
 									</div>
 								</div>
 							</form>
-							<div class="search-results-info">Resultados para: <span class="text-green"><strong>"<?php echo $_GET['clave'] ?>"</strong></span></div>
+							<div class="search-results-info">Resultados para:  <span class="text-green"><strong>"<?php echo $_GET['clave'] ?>"</strong></span></div>
 						</div>
 
 
  <?php  mysql_query("SET NAMES utf8");
 mysql_query("SET CHARACTER_SET utf");  
+$id_cliente = $_SESSION['usuario']['Id'];
 
+	 
 
 if (isset($_GET['clave'])) {
 	$texto = $_GET['clave'];
-$resul =  mysql_query("SELECT * FROM form_fichas_opciones where anulado <> 1 and nombre_opcion like '%".$texto."%'  OR  sector like '%".$texto."%' OR cod_postal like '%".$texto."%'  "); 
+
+/*$resul =  mysql_query("SELECT * FROM form_fichas_opciones where anulado <> 1 and nombre_opcion like '%".$texto."%'  OR  sector like '%".$texto."%' OR cod_postal like '%".$texto."%'  "); */
+
+$resul =  mysql_query("SELECT * FROM admin_crm.asing_fichas_exclusivas a, form_fichas_opciones f where a.id_opcion = f.ref and f.anulado <> 1 and a.id_cliente ='$id_cliente ' and f.nombre_opcion like '%".$texto."%'   "); 
+
+
 } else {
-$resul =  mysql_query("SELECT * FROM form_fichas_opciones where anulado <> 1 order by ref desc limit 6;");
+$resul =  mysql_query("SELECT * FROM admin_crm.asing_fichas_exclusivas a, form_fichas_opciones f where a.id_opcion = f.ref and f.anulado <> 1 and a.id_cliente ='$id_cliente ' order by f.ref desc limit 6;");
 }
 			
 
