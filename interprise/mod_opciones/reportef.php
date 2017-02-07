@@ -23,7 +23,7 @@ mysql_query("SET CHARACTER_SET utf");
 				<?php 
 				$id = $_REQUEST['id'];
 				$i=0;
-				$resul =  mysql_query("SELECT * FROM `form_fichas_opciones` where anulado <> 1 and ref='$id'");
+				$resul =  mysql_query("SELECT * FROM `form_fichas_opciones_franquicias` where anulado <> 1 and ref='$id'");
 				while($row =  mysql_fetch_array($resul) ) {
 				
 								
@@ -263,7 +263,7 @@ color: #fff;
 				</h1>
 				<ol class="breadcrumb hidden-print">
 					<li><a href="index.php">Sharpen</a></li>
-				<li><a href="diarios.php">Reportes - Fichas de opciones</a></li>
+				<li><a href="franquicias.php">Reportes - Fichas de franquicias</a></li>
 				</ol>
 				
 				<div id="imprime" class="box rte ">
@@ -301,7 +301,7 @@ color: #fff;
 						<div  id="cuadro_inversiones" class="col-xs-12 col-xs-12 i yellow">
 							<a href="#" title="#" class="c">
 								<h3 class="title ">Inversión</h3>
-								<div class="num "><?php echo $opciones['opciones'][0]['nosotros_ofrecemos'] ?> €</div>
+								<div class="num "><?php echo $opciones['opciones'][0]['inversion'] ?> €</div>
 								 
 							<i class="icon zmdi zmdi-case"></i>
 							</a>
