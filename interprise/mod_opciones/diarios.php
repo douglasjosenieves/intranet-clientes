@@ -149,9 +149,9 @@ mysql_query("SET CHARACTER_SET utf");
 
 if (isset($_GET['clave'])) {
 	$texto = $_GET['clave'];
-$resul =  mysql_query("SELECT * FROM form_fichas_opciones where anulado <> 1 and nombre_opcion like '%".$texto."%'  OR  sector like '%".$texto."%' OR cod_postal like '%".$texto."%'  "); 
+$resul =  mysql_query("SELECT * FROM form_fichas_opciones where anulado <> 1 and exclusivo <> 1 and nombre_opcion like '%".$texto."%'  OR  sector like '%".$texto."%' OR cod_postal like '%".$texto."%'  "); 
 } else {
-$resul =  mysql_query("SELECT * FROM form_fichas_opciones where anulado <> 1 order by ref desc limit 6;");
+$resul =  mysql_query("SELECT * FROM form_fichas_opciones where anulado <> 1 and exclusivo <> 1 order by ref desc limit 6;");
 }
 			
 
