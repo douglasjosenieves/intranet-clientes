@@ -1,0 +1,13 @@
+{
+    "name": "tuweblink/cohen",
+    "type": "project",
+    "require": {
+       
+        "dompdf/dompdf": "^0.7.0",
+        "raveren/kint": "^1.0",
+        "monolog/monolog": "^1.22"
+       
+    },
+    "license": "project",
+    "minimum-stability": "beta"
+}
