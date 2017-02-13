@@ -142,6 +142,30 @@ $data['data'][] = $row;
 					
 
 					<div class="doc_ajuntos">
+
+
+<!--==============================================
+=            CARGA DE DOCUMENTOS 2017            =
+===============================================-->
+
+
+<?php $nombre_carpeta= $id; ?>
+
+
+
+
+<iframe width="100%" height="300px" src="http://cohenyaguirre.tk/interprise/file-upload/Documentos-contactos2017/index_clientes.php#<?php echo $nombre_carpeta ?>"
+></iframe>	
+
+
+
+ 
+<!--====  End of CARGA DE DOCUMENTOS 2017  ====-->
+
+
+
+
+
 <h3>Documentos adjuntos</h3>
 <?php $pre_adjunto = unserialize($data['data'][0]['imagenes']) ;
 

@@ -432,6 +432,19 @@ $data['data'][] = $row;
 				<h2 class="boxHeadline">Datos personales y profesionales</h2>
 					<h3 class="boxHeadlineSub">Formulario.</h3>
 
+<div class="row">
+	
+
+	
+	<div class="col-xs-12 col-sm-4">
+	<div class="form-group">
+	<label for="basicInput">Fecha Contratación</label>
+	<input type="date" value="<?php echo $data['data'][0]['fecha_contratacion'] ?>"  class="form-control" name="fecha_contratacion" id="fecha_contratacion" placeholder="Fecha Contratación">
+	</div>
+	</div>
+		
+</div>
+
 					<div class="row">
 						
 
@@ -731,21 +744,15 @@ $data['data'][] = $row;
 <button type="button" id="remove_hijos" class="btn bg-red">Remover <i class="fa fa-eraser"></i></button> -->
 <div id="hijos" class="row">
 	
-
-<?php if ($_GET['tipo']=='editar') {
-	
-require_once 'hijos.php';
-
-}
-
-else {
+<?php require_once 'hijos.php';  ?>
+ 
 
 
- ?>
+ 
 
 
 
-<div class="item_hijos">
+<!-- <div class="item_hijos">
 	<div class="col-xs-12 col-sm-3">
 								<div class="form-group">
 									<label for="basicInput">Hijo Nombre</label>
@@ -783,9 +790,8 @@ else {
 														</div>
 
 </div>
-
-<?php  } ?>
-
+ -->
+ 
 </div>
 							
 <div class="row" id="mas_hijos">

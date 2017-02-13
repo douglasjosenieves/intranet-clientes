@@ -157,7 +157,7 @@ body{
                         <label for="password" class="col-md-3 control-label">Password</label>
 
                         <div class="col-md-9">
-                            <input type="password" class="form-control" name="password" placeholder="Password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                         </div>
                     </div>
 
@@ -194,13 +194,24 @@ body{
 
 
 <script type="text/javascript">
+  
+
+
     
+
+
+
+
 $(document).ready(function() {
-    
+
 
 $('#loging').on('submit', function(event) {
     event.preventDefault();
     /* Act on the event */
+
+var ele = $('#clave').val();
+if (/\s/.test(ele)) { alert("no se permiten espacios en blanco"); return false; }
+   
 
     $('#boton').button('loading');
  

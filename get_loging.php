@@ -21,6 +21,8 @@ $clave=$_REQUEST['clave'];
 
 $clavemd5 = $clave;
 //sleep(5);
+ 
+	
 
  
   $qry = "SELECT * FROM contactos_web where email='$email' and clave='$clavemd5' and anulado <> 1";
@@ -78,7 +80,7 @@ echo 'false'.$id;
 }
 
 
-
+ 
   
    die;
  

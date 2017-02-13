@@ -48,7 +48,7 @@ require_once 'nav_define.php';
 
 
 		<li><a href="<?php echo BASE_URL ?>mod_seguimientos/tecnologia.php" title="Perfil del usuario">Tecnología</a></li>			
-				<li><a href="<?php echo BASE_URL ?>mod_seguimientos/estudios.php" title="Perfil del usuario">Estudios contratados</a></li>
+			 
 
 
 						 
