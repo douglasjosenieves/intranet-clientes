@@ -27,6 +27,7 @@ require_once 'nav_define.php';
 							
 					<li><a href="<?php echo BASE_URL ?>mod_opciones/diarios.php" title="#">Diarios</a></li>
 					<li><a href="<?php echo BASE_URL ?>mod_opciones/exclusivas.php" title="#">Exclusivas</a></li>
+						<li><a href="<?php echo BASE_URL ?>mod_opciones/exclusivasF.php" title="#">Exclusivas Franquicias</a></li>
 					<li><a href="<?php echo BASE_URL ?>mod_opciones/franquicias.php" title="#">Franquicias</a></li>
 					
 

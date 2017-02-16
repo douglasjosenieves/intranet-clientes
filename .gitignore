@@ -48,3 +48,4 @@ Temporary Items
 db_config.php
 
 /vendor/
+/interprise/logs/
