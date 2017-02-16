@@ -211,12 +211,12 @@ $imagen1 = 'http://cohenyaguirre.tk/interprise/img/sin_imagen_disponible.jpg';
 						<div class="participants">
 								<div class="text-light-gray title">Ref# <?php  echo $data[$st]['ref'] ?></div>
 								<ul class="usersList">
-									<li><a href="<?php echo BASE_URL ?>mod_opciones/reporte.php?id=<?php  echo $data[$st]['ref'] ?>" title="#"><img src="<?php echo $imagen0;  ?>" alt="#" width="44" height="44"></a></li>
-									<li><a href="<?php echo BASE_URL ?>mod_opciones/reporte.php?id=<?php  echo $data[$st]['ref'] ?>" title="#"><img src="<?php echo $imagen1;  ?>" alt="#" width="44" height="44"></a></li>
+									<li><a href="<?php echo BASE_URL ?>mod_opciones/reportef.php?id=<?php  echo $data[$st]['ref'] ?>" title="#"><img src="<?php echo $imagen0;  ?>" alt="#" width="44" height="44"></a></li>
+									<li><a href="<?php echo BASE_URL ?>mod_opciones/reportef.php?id=<?php  echo $data[$st]['ref'] ?>" title="#"><img src="<?php echo $imagen1;  ?>" alt="#" width="44" height="44"></a></li>
 									
 								</ul>
 							</div>
-							<p><?php echo substr($data[$st]['comentarios_sobre_negocio'], 0,300) ?>... <a href="<?php echo BASE_URL ?>mod_opciones/reporte.php?id=<?php  echo $data[$st]['ref'] ?>" title="#" class="text-orange"><strong>Ver mas</strong></a></p>
+							<p><?php echo substr($data[$st]['comentarios_sobre_negocio'], 0,300) ?>... <a href="<?php echo BASE_URL ?>mod_opciones/reportef.php?id=<?php  echo $data[$st]['ref'] ?>" title="#" class="text-orange"><strong>Ver mas</strong></a></p>
 
 							<div class="info">
 								<span class="text-light-gray"><i class="fa fa-fw fa-clock-o"></i> Fecha de publicación:</span> <strong><?php  echo $data[$st]['fecha'] ?></strong><br>
